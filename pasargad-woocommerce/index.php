@@ -194,7 +194,7 @@ if($_GET['msg']!=''){
 				
 			$amount = $order -> order_total; 
             
-			require_once("RSAProcessor.class.php"); 
+			require_once("RSAProcessor.php"); 
            
 			$processor = new RSAProcessor("certificate.xml",RSAKeyType::XMLFile);
             
