@@ -196,7 +196,7 @@ if($_GET['msg']!=''){
             
 			require_once("RSAProcessor.class.php"); 
            
-			$processor = new RSAProcessor("certificate.xml",RSAKeyType::XMLFile);
+			$processor = new RSAProcessor(plugins_url() . "/pasargad-woocommerce/" . "certificate.xml",RSAKeyType::XMLFile);
             
 			$merchantCode = $this -> merchant_id; // كد پذيرنده
 			$terminalCode = $this -> terminal_id;; // كد ترمينال
@@ -222,15 +222,15 @@ if($_GET['msg']!=''){
                 ?>
 			
 			<form Id='FinalFactor' name="FinalFactor" method='post' action='https://epayment.bankpasargad.com/gateway.aspx'>
-				<input type="hidden" name='invoiceNumber' value='<?= $invoiceNumber ?>' />
-				<input type="hidden" name='invoiceDate' value='<?= $invoiceDate ?>' />
-				<input type="hidden" name='amount' value='<?= $amount ?>' />
-				<input type="hidden" name='terminalCode' value='<?= $terminalCode ?>' />
-				<input type="hidden" name='merchantCode' value='<?= $merchantCode ?>' />
-				<input type="hidden" name='redirectAddress' value='<?= $redirectAddress ?>' />
-				<input type="hidden" name='timeStamp' value='<?= $timeStamp ?>' />
-				<input type="hidden" name='action' value='<?= $action ?>' />
-				<input type="hidden" name='sign' value='<?= $result ?>' />
+				<input type="hidden" name='invoiceNumber' value='<?php echo $invoiceNumber ?>' />
+				<input type="hidden" name='invoiceDate' value='<?php echo $invoiceDate ?>' />
+				<input type="hidden" name='amount' value='<?php echo $amount ?>' />
+				<input type="hidden" name='terminalCode' value='<?php echo $terminalCode ?>' />
+				<input type="hidden" name='merchantCode' value='<?php echo $merchantCode ?>' />
+				<input type="hidden" name='redirectAddress' value='<?php echo $redirectAddress ?>' />
+				<input type="hidden" name='timeStamp' value='<?php echo $timeStamp ?>' />
+				<input type="hidden" name='action' value='<?php echo $action ?>' />
+				<input type="hidden" name='sign' value='<?php echo $result ?>' />
 				<input type="submit" id="finalformsubmitbtn" name='submit' value='پرداخت' />
 			</form>
 			
